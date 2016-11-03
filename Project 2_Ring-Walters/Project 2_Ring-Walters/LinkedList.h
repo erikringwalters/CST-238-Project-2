@@ -23,8 +23,13 @@ public:
 	void insert(ElementType item, int pos);
 	void erase(ElementType item);
 	void traverse();
-
 	void display(ostream & out) const;
+	int countHowManyElements();//I understand this is not part of the projects requirements
+	int count(int searchFor);
+	ElementType getNth(int n);
+	ElementType pop();
+	void append(LinkedList a, LinkedList b);
+	void duplicates();
 	/*--------------------------------------------------------------------
 	Display the contensts of this LinkedList.
 	Precondition: ostream out is open
@@ -50,6 +55,7 @@ private:
 	};
 	Node * first;
 	int mySize;
+	Node * last; // This is for the pop() funtion;
 };
 
 #endif

@@ -94,6 +94,7 @@ void LinkedList::insert(ElementType dataVal, int index)
 		newPtr->next = predPtr->next;
 		predPtr->next = newPtr;
 	}
+	
 }
 
 
@@ -136,4 +137,89 @@ void LinkedList::display(ostream & out) const
 		out << ptr->data << " ";
 		ptr = ptr->next;
 	}
+}
+
+//--Definition of countHowManyElements()
+int LinkedList::countHowManyElements()
+{
+	int counter = 0;
+	Node * ptr = first;
+	while (ptr != NULL)
+	{
+		ptr = ptr->next;
+		counter++;
+	}
+	return counter;
+}
+
+//--Definition of overloaded count(int searchFor)
+int LinkedList::count(int searchFor)
+{
+	Node *ptr = first;
+	int counter = 0;
+	while (ptr != NULL)
+	{
+		if (ptr->data == searchFor)
+		{
+			counter++;
+		}
+		ptr = ptr->next;
+	}
+	return counter;
+}
+
+//--Definition of getNth(n)
+ElementType LinkedList::getNth(int n)
+{
+	Node *ptr = first;
+	for (int i = 0; i < n; i++)
+	{
+		ptr = ptr->next;
+
+	}
+	return ptr->data;
+}
+
+//--Definition of pop()
+ElementType LinkedList::pop()
+{
+	Node * lastPtr = first;//last pointer keeps track of the last node
+	Node * ptr = first;
+	while (ptr != NULL)
+	{
+		ptr = ptr->next;
+		if (ptr != NULL)//makes lastPtr point to the node before NULL
+		{
+			lastPtr = ptr;
+		}
+	}
+	ElementType data = lastPtr->data;
+	//This is where I should delete the last node.
+	return data;
+}
+
+//--Definition of append()
+void LinkedList::append(LinkedList a, LinkedList b)//need to use a and b in arguments
+{
+	Node *aptr = a.first;
+	Node *bptr = b.first;
+	int counter = 0;
+	while (aptr != NULL)
+	{
+		aptr = aptr->next;
+		counter++;
+	}
+	while (bptr != NULL)
+	{
+		a.insert(bptr->data, counter);
+		aptr->data = bptr->data;
+		aptr = aptr->next;
+		bptr = bptr->next;
+	}
+}
+
+//--Definiton of duplicates()
+void LinkedList::duplicates()
+{
+
 }
