@@ -28,7 +28,7 @@ public:
 	int count(int searchFor);
 	ElementType getNth(int n);
 	ElementType pop();
-	void append(LinkedList a, LinkedList b);
+	void append(LinkedList b);
 	void duplicates();
 	/*--------------------------------------------------------------------
 	Display the contensts of this LinkedList.

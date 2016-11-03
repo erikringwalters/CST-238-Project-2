@@ -199,9 +199,9 @@ ElementType LinkedList::pop()
 }
 
 //--Definition of append()
-void LinkedList::append(LinkedList a, LinkedList b)//need to use a and b in arguments
+void LinkedList::append(LinkedList b)//need to use a and b in arguments
 {
-	Node *aptr = a.first;
+	Node *aptr = first;
 	Node *bptr = b.first;
 	int counter = 0;
 	while (aptr != NULL)
@@ -211,8 +211,8 @@ void LinkedList::append(LinkedList a, LinkedList b)//need to use a and b in argu
 	}
 	while (bptr != NULL)
 	{
-		a.insert(bptr->data, counter);
-		aptr->data = bptr->data;
+		insert(bptr->data, counter);
+		aptr->data = bptr->data;//problem here with adding data to the newly added node.
 		aptr = aptr->next;
 		bptr = bptr->next;
 	}
