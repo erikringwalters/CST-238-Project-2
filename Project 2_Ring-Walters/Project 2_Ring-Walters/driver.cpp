@@ -19,10 +19,14 @@ void main()
 	}
 	cout << "Displaying first list: \n";
 	y.display(cout);
-	cout << " \n Displaying second list: \n";
+	cout << " \nDisplaying second list: \n";
 	z.display(cout);
 	cout << endl;
 	y.append(z);
 	cout << "Displaying appended list: \n";
 	y.display(cout);
+	cout << endl;
+	cout << "counting the number zero in appended list: \n";
+	cout << y.count(0) << endl;
+
 }
