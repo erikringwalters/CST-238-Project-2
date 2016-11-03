@@ -204,16 +204,10 @@ void LinkedList::append(LinkedList b)//need to use a and b in arguments
 	Node *aptr = first;
 	Node *bptr = b.first;
 	int counter = 0;
-	while (aptr != NULL)
-	{
-		aptr = aptr->next;
-		counter++;
-	}
 	while (bptr != NULL)
 	{
-		insert(bptr->data, counter);
-		aptr->data = bptr->data;//problem here with adding data to the newly added node.
-		aptr = aptr->next;
+		insert(bptr->data, mySize);
+		//mySize++;
 		bptr = bptr->next;
 	}
 }

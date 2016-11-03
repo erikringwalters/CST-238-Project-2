@@ -21,5 +21,8 @@ void main()
 	y.display(cout);
 	cout << " \n Displaying second list: \n";
 	z.display(cout);
+	cout << endl;
 	y.append(z);
+	cout << "Displaying appended list: \n";
+	y.display(cout);
 }
