@@ -94,7 +94,7 @@ void LinkedList::insert(ElementType dataVal, int index)
 		newPtr->next = predPtr->next;
 		predPtr->next = newPtr;
 	}
-	
+
 }
 
 
@@ -172,10 +172,9 @@ int LinkedList::count(int searchFor)
 ElementType LinkedList::getNth(int n)
 {
 	Node *ptr = first;
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < n - 1; i++)
 	{
 		ptr = ptr->next;
-
 	}
 	return ptr->data;
 }
@@ -183,32 +182,29 @@ ElementType LinkedList::getNth(int n)
 //--Definition of pop()
 ElementType LinkedList::pop()
 {
-	Node * lastPtr = first;//last pointer keeps track of the last node
 	Node * ptr = first;
-	while (ptr != NULL)
+	if (first == NULL)//checks whether list is empty
 	{
-		ptr = ptr->next;
-		if (ptr != NULL)//makes lastPtr point to the node before NULL
-		{
-			lastPtr = ptr;
-		}
+		cout << "---LIST IS EMPTY---\n";
+		return -1;
 	}
-	ElementType data = lastPtr->data;
-	//This is where I should delete the last node.
-	return data;
+	else
+	{
+		ElementType data;
+		data = ptr->data;
+		erase(0);
+		return data;
+	}
 }
 
 //--Definition of append()
-void LinkedList::append(LinkedList b)//need to use a and b in arguments
+void LinkedList::append(LinkedList b)//argument for looking at second list
 {
-	Node *aptr = first;
-	Node *bptr = b.first;
-	int counter = 0;
-	while (bptr != NULL)
+	Node *bptr = b.first;//sets pointer to beginning of second list
+	while (bptr != NULL)//until we reach the end of second list
 	{
-		insert(bptr->data, mySize);
-		//mySize++;
-		bptr = bptr->next;
+		insert(bptr->data, mySize);//take second list's element's data and put it at the end of first list.
+		bptr = bptr->next;//increment bptr
 	}
 }
 
@@ -217,20 +213,28 @@ void LinkedList::duplicates()
 {
 	Node *ptr1 = first;
 	Node *ptr2 = first;
+	Node * dupPtr = ptr2;
 	int index = 0;
 	while (ptr1 != NULL)
 	{
-		while (ptr2 != NULL)
-		{
-			if (ptr1->data == ptr2->data)
-			{
-				erase(index);
-			}
-			ptr2 = ptr2->next;
-			index++;
-		}
-		ptr1 = ptr1->next;
+		//cout << "Pointer 1 is " << ptr1 << endl;
 		ptr2 = first;
 		index = 0;
+		while (ptr2 != NULL)
+		{
+			if (ptr1->data == ptr2->data && ptr1 != ptr2)//checks if data is same but Node is not.
+			{
+
+				ptr2 = ptr2->next;
+				erase(index);
+				//index++;
+			}
+			else
+			{
+				ptr2 = ptr2->next;
+				index++;
+			}
+		}
+			ptr1 = ptr1->next;
 	}
 }

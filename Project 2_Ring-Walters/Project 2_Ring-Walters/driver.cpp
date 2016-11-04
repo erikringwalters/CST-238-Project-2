@@ -28,7 +28,7 @@ void main()
 	cout << endl;
 	cout << "counting the number zero in appended list: \n";
 	cout << y.count(0) << endl;
-	cout << "Constructing new list 'd'...\n";
+	cout << "Constructing new list 'd':\n";
 	LinkedList d;
 	for (int i = 0; i < 10; i++)
 	{
@@ -36,6 +36,15 @@ void main()
 	}
 	cout << "Displaying list 'd':  \n";
 	d.display(cout);
-	cout << "Deleting duplicates of list 'd': \n";
+	cout << "\nDeleting duplicates of list 'd': \n";
 	d.duplicates();
+	cout << "Displaying list 'd' after duplicates are deleted: \n";
+	d.display(cout);
+	cout << "\nGetting third element of list 'd' (running getNth(int index) with argument 3): \n";
+	cout << d.getNth(3) << endl;
+	cout << "Popping list 'd': \n" << d.pop() << endl;
+	cout << "Displaying list 'd' after pop(): \n";
+	d.display(cout);
+	cout << endl;
+
 }
