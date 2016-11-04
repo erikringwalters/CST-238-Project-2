@@ -209,7 +209,7 @@ void LinkedList::append(LinkedList b)//argument for looking at second list
 }
 
 //--Definiton of duplicates()
-void LinkedList::duplicates()
+void LinkedList::duplicates()//this was the hardest one for me.
 {
 	Node *ptr1 = first;
 	Node *ptr2 = first;
@@ -224,10 +224,8 @@ void LinkedList::duplicates()
 		{
 			if (ptr1->data == ptr2->data && ptr1 != ptr2)//checks if data is same but Node is not.
 			{
-
 				ptr2 = ptr2->next;
 				erase(index);
-				//index++;
 			}
 			else
 			{

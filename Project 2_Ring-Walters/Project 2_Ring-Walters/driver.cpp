@@ -46,5 +46,9 @@ void main()
 	cout << "Displaying list 'd' after pop(): \n";
 	d.display(cout);
 	cout << endl;
+	cout << "Constructing empty list 'f': \n";
+	LinkedList f;
+	cout << "Popping from list 'f': \n";
+	f.pop();
 
 }
