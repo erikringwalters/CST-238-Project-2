@@ -215,5 +215,22 @@ void LinkedList::append(LinkedList b)//need to use a and b in arguments
 //--Definiton of duplicates()
 void LinkedList::duplicates()
 {
-
+	Node *ptr1 = first;
+	Node *ptr2 = first;
+	int index = 0;
+	while (ptr1 != NULL)
+	{
+		while (ptr2 != NULL)
+		{
+			if (ptr1->data == ptr2->data)
+			{
+				erase(index);
+			}
+			ptr2 = ptr2->next;
+			index++;
+		}
+		ptr1 = ptr1->next;
+		ptr2 = first;
+		index = 0;
+	}
 }

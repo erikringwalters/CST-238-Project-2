@@ -28,5 +28,14 @@ void main()
 	cout << endl;
 	cout << "counting the number zero in appended list: \n";
 	cout << y.count(0) << endl;
-
+	cout << "Constructing new list 'd'...\n";
+	LinkedList d;
+	for (int i = 0; i < 10; i++)
+	{
+		d.insert(i / 2, i);
+	}
+	cout << "Displaying list 'd':  \n";
+	d.display(cout);
+	cout << "Deleting duplicates of list 'd': \n";
+	d.duplicates();
 }
